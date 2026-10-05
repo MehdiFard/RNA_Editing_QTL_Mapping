@@ -1,4 +1,4 @@
-# RNA editing QTL pipeline
+# RNA editing QTL mapping pipeline
 
 <div align="justify">
 
@@ -12,7 +12,7 @@ It was written for GTEx v8 (BAM files aligned with STAR to the hg38 reference ge
 
 ## Workflow
 
-Steps of the Snakemake workflow and their dependencies (generated with `snakemake --rulegraph`):
+Steps of the Snakemake workflow and their dependencies:
 
 ```mermaid
 flowchart TD
