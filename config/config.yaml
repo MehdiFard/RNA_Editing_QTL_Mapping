@@ -1,0 +1,53 @@
+# Sample annotation: one row per RNA-seq sample. Columns used (by name): sample_id, subject_id, tissue_cln
+annotation_file: "src/sample_annotation.tsv"
+
+# Subject covariates: one row per subject. Columns used (by name): subject_id, sex, age
+# The files in the repo are small examples; for real runs use the controlled-access files, e.g.
+subject_covariates: "src/subject_covariates.tsv"
+
+# Path to edit sites reference file
+edit_sites_bed: "src/All.AG.stranded.annovar.Hg38_multianno.AnnoAlu.AnnoRep.NR.bed"
+
+# Path to reference fasta file
+ref_genome_fasta: "src/Homo_sapiens_assembly38_noALT_noHLA_noDecoy.fasta"
+
+# Bam extension
+bam_extension: "Aligned.sortedByCoord.out.patched.md.bam"
+
+# Minimum coverage and samples required for a given site to be picked in final bed file
+min_coverage: 20
+min_samples: 60
+
+# Genotype qc thresholds
+maf_threshold: 0.05
+geno_threshold: 0.05
+hwe_threshold: 1e-6
+
+# Path to genotype VCF (sample IDs must be subject IDs, e.g. GTEX-1117F)
+genotype_vcf: "data/genotype/GTEx_Analysis_2017-06-05_v8_WholeGenomeSeq_838Indiv_Analysis_Freeze_MAF001_GTonly.vcf.gz"
+
+# LD pruning for genotype PCs (plink2 --maf and --indep-pairwise window step r2)
+prune_maf: 0.05
+prune_window: 200
+prune_step: 100
+prune_r2: 0.1
+
+# Number of genotype and phenotype PCs in the covariate file
+geno_pcs: 3
+pheno_pcs: 5
+
+# tensorQTL cis window (bp) and FDR for extracting all significant pairs
+cis_window: 1000000
+fdr: 0.05
+
+# Threads per plink2 job
+plink_threads: 4
+
+# Phenotype normalization in prep_phen (both start from the same filtered, mean-imputed editing ratios):
+#   quantile_int  (default): Quantile normalization of samples + rank-based Inverse Normal Transformation of each
+#                 site across samples (QN + INT). As in Pantry and the GTEx eQTL pipeline; every site becomes
+#                 normally distributed, so single-sample outliers cannot drive an association.
+#   zscore_qqnorm: Per-site z-score standardization + per-sample quantile-quantile normalization (qqnorm).
+#                 As in LeafCutter and Li et al. 2022, "RNA editing underlies genetic risk of common inflammatory
+#                 diseases" (GTEx_edQTL); keeps each site's distribution shape.
+normalization: quantile_int

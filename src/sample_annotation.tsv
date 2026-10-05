@@ -1,0 +1,11 @@
+sample_id	subject_id	tissue	tissue_cln	tissue_abbr	color_hex
+GTEX-1117F-0226-SM-5GZZ7	GTEX-1117F	Adipose - Subcutaneous	Adipose_Subcutaneous	ADPSBQ	FF6600
+GTEX-111CU-1826-SM-5GZYN	GTEX-111CU	Adipose - Subcutaneous	Adipose_Subcutaneous	ADPSBQ	FF6600
+GTEX-111FC-0226-SM-5N9B8	GTEX-111FC	Adipose - Subcutaneous	Adipose_Subcutaneous	ADPSBQ	FF6600
+GTEX-111VG-2326-SM-5N9BK	GTEX-111VG	Adipose - Subcutaneous	Adipose_Subcutaneous	ADPSBQ	FF6600
+GTEX-111YS-2426-SM-5GZZQ	GTEX-111YS	Adipose - Subcutaneous	Adipose_Subcutaneous	ADPSBQ	FF6600
+GTEX-111FC-3326-SM-5GZYV	GTEX-111FC	Brain - Cerebellum	Brain_Cerebellum	BRNCHA	EEEE00
+GTEX-1128S-2826-SM-5N9DI	GTEX-1128S	Brain - Cerebellum	Brain_Cerebellum	BRNCHA	EEEE00
+GTEX-117XS-3126-SM-5GIDP	GTEX-117XS	Brain - Cerebellum	Brain_Cerebellum	BRNCHA	EEEE00
+GTEX-1192X-3226-SM-5987D	GTEX-1192X	Brain - Cerebellum	Brain_Cerebellum	BRNCHA	EEEE00
+GTEX-11DYG-2926-SM-5H132	GTEX-11DYG	Brain - Cerebellum	Brain_Cerebellum	BRNCHA	EEEE00

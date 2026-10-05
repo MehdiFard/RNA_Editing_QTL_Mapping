@@ -1,0 +1,33 @@
+# Conda environment for the edQTL pipeline.
+name: rna_editing_env
+channels:
+  - conda-forge
+  - bioconda
+  - dnachun
+dependencies:
+  # Workflow
+  - python=3.12
+  - snakemake=9.3.4
+  # Command-line tools
+  - samtools=1.21        # also provides bgzip and tabix (htslib)
+  - htslib=1.21
+  - plink2=2.0.0a.6.9
+  - perl=5.32.1
+  # Python
+  - dnachun::tensorqtl=1.0.10
+  - rpy2
+  - pytorch=2.7.0        # CPU build; see README for GPU
+  - numpy=2.2.5
+  - pandas=2.2.3
+  - scipy=1.15.2
+  - scikit-learn=1.6.1
+  - fastparquet=2024.11.0
+  # R
+  - r-base=4.4.3
+  - r-dplyr
+  - r-tibble
+  - r-rlang
+  - r-argparse=2.2.5
+  - bioconda::bioconductor-qvalue=2.38.0
+  - bioconda::bioconductor-variantannotation=1.52.0
+  - bioconda::bioconductor-impute=1.80.0
