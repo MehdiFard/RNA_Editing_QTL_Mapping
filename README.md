@@ -10,6 +10,34 @@ Use this repository to run the RNA editing pipeline independently. To analyze RN
 
 It was written for GTEx v8 (BAM files aligned with STAR to the hg38 reference genome, and WGS genotypes), but should work for any cohort with BAM files, a VCF, and sample annotation.
 
+## Workflow
+
+Steps of the Snakemake workflow and their dependencies (generated with `snakemake --rulegraph`):
+
+```mermaid
+flowchart TD
+    index_ref_genome --> query_editing_level
+    query_editing_level --> shared_sample_site
+    shared_sample_site --> prep_phen
+    prep_phen --> combine_to_bed
+    preparing_genotype --> pruning_for_covar
+    combine_to_bed --> covariates
+    pruning_for_covar --> covariates
+    covariates --> tensorqtl_cis
+    preparing_genotype --> tensorqtl_cis
+    combine_to_bed --> tensorqtl_cis
+    covariates --> tensorqtl_cis_independent
+    tensorqtl_cis --> tensorqtl_cis_independent
+    preparing_genotype --> tensorqtl_cis_independent
+    combine_to_bed --> tensorqtl_cis_independent
+    covariates --> tensorqtl_cis_nominal
+    preparing_genotype --> tensorqtl_cis_nominal
+    combine_to_bed --> tensorqtl_cis_nominal
+    tensorqtl_cis --> tensorqtl_all_signif
+    tensorqtl_cis_nominal --> tensorqtl_all_signif
+    tensorqtl_cis_nominal --> tensorqtl_all_cis_pvals
+```
+
 ## Installation
 
 ```sh
@@ -70,6 +98,10 @@ This pipeline builds on code and methods from:
 
 - Qin Li, Michael J. Gloudemans, Jonathan M. Geisinger, Boming Fan, François Aguet, Tao Sun, Gokul Ramaswami, Yang I. Li, Jin-Biao Ma, Jonathan K. Pritchard, Stephen B. Montgomery, Jin Billy Li. RNA editing underlies genetic risk of common inflammatory diseases. *Nature* 608, 569–577 (2022). https://doi.org/10.1038/s41586-022-05052-x
 - Daniel Munro, Nava Ehsan, Seyed Mehdi Esmaeili-Fard, Alexander Gusev, Abraham A. Palmer, Pejman Mohammadi. Multimodal analysis of RNA sequencing data powers discovery of complex trait genetics. *Nature Communications* 15, 10387 (2024). https://doi.org/10.1038/s41467-024-54840-8
+
+## Author
+
+Mehdi Esmaeili-Fard (mehdi.esmaeilifard@gmail.com)
 
 ## License
 
